@@ -29,7 +29,7 @@ public class Tree {
             Class.forName("com.mysql.jdbc.Driver").newInstance();
             try (Connection con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/sdnl", "root", "")) {
                 Statement st = (Statement) con.createStatement();
-                String sql = ("SELECT * FROM bahasa");
+                String sql = ("SELECT * FROM bahasabaru");
                 ResultSet rs = st.executeQuery(sql);
                 int a = 0;
                 while (rs.next()) {
@@ -44,7 +44,6 @@ public class Tree {
                         kuncia += kunci;
                     }
                     bahasa.setAngka(kuncia);
-//                    System.out.println(kuncia);
                     insertNode(bahasa);
                     a++;
                 }
@@ -54,11 +53,12 @@ public class Tree {
             Logger.getLogger(Tree.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    public void baca(){
+
+    public void baca() {
         try {
             BufferedReader br = new BufferedReader(new FileReader("DataJawa.csv"));
-            while (br.readLine() != null) {                
-              
+            while (br.readLine() != null) {
+
             }
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Tree.class.getName()).log(Level.SEVERE, null, ex);
@@ -66,6 +66,7 @@ public class Tree {
             Logger.getLogger(Tree.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
     public void insertNode(Bahasa key) {
         TreeNode node = new TreeNode(key);
         if (root == null) {
@@ -199,15 +200,15 @@ public class Tree {
             if (cari == null) {
                 break;
             } else {
-                if (key.getAngka() == cari.getData().getAngka()) {
+                if (key.getIndo().equalsIgnoreCase(cari.getData().getIndo())) {
                     System.out.println(cari.getData().getKromo());
                     return cari;
                 } else {
-                    if (key.getAngka() > cari.getData().getAngka()) {
-                        System.out.println("cari kanan");
+                    if (key.getIndo().charAt(0) > cari.getData().getIndo().charAt(0)) {
+//                        System.out.println("cari kanan");
                         cari = cari.getRightNode();
                     } else {
-                        System.out.println("cari kiri");
+//                        System.out.println("cari kiri");
                         cari = cari.getLeftNode();
                     }
                 }
@@ -320,7 +321,7 @@ public class Tree {
     private void inOrderHelper(TreeNode node) {
         if (node != null) {
             inOrderHelper(node.getLeftNode());
-            System.out.print(node.getData().getKromo() + " ");
+            System.out.print(node.getData().getIndo()+ " ");
             inOrderHelper(node.getRightNode());
         }
     }

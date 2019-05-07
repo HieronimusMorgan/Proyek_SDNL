@@ -8,6 +8,7 @@ package view;
 import Tree.Bahasa;
 import Tree.Tree;
 import Tree.TreeNode;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -144,11 +145,20 @@ public class Kamusku extends javax.swing.JFrame {
 
     private void cariButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cariButtonActionPerformed
         Bahasa s = new Bahasa();
-        s.setIndo(indoText.getText());
+        String c = indoText.getText();
+        int kunci = (int) c.charAt(0);
+        if (kunci > 0) {
+            c = indoText.getText().substring(0, 1).toUpperCase() + indoText.getText().substring(1, indoText.getText().length());
+        }
+        s.setIndo(c);
         s.setAngka(s.hitung(indoText.getText()));
         TreeNode cari = kamus.searchNode(s);
-        ngokoText.setText(cari.getData().getNgoko());
-        kramaText.setText(cari.getData().getKromo());
+        if (cari != null) {
+            ngokoText.setText(cari.getData().getNgoko());
+            kramaText.setText(cari.getData().getKromo());
+        } else {
+            JOptionPane.showMessageDialog(null, "Kata Tidak Tersedia");
+        }
 
     }//GEN-LAST:event_cariButtonActionPerformed
 

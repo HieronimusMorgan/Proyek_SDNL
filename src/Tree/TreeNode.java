@@ -14,7 +14,7 @@ public class TreeNode {
     }
 
     public void insert(Bahasa key) {
-        if (key.getAngka() > getData().getAngka()) {
+        if (key.getIndo().charAt(0) > getData().getIndo().charAt(0)) {
             if (getRightNode() == null) {
                 setRightNode(new TreeNode(key));
             } else {
