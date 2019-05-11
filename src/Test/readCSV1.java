@@ -18,7 +18,7 @@ import java.util.logging.Logger;
 public class readCSV1 {
 
     public static void main(String[] args) {
-        String fileName = "src/DataJawa.csv";
+        String fileName = "src/DataJawaEdit.csv";
         File file = new File(fileName);
         try {
             Scanner inputStream = new Scanner(file);
