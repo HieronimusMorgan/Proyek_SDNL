@@ -25,8 +25,9 @@ public class readCSV1 {
 //            inputStream.useDelimiter(",");
             while (inputStream.hasNext()) {
                 String data = inputStream.next();
-               data.split(",");
-                System.out.println(data+" ");
+//               data.replaceAll("\\s", "");
+//               data.split(",");
+                System.out.println(data + " ");
             }
             inputStream.close();
         } catch (FileNotFoundException ex) {
