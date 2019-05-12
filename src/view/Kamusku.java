@@ -80,7 +80,7 @@ public class Kamusku extends javax.swing.JFrame {
                 cariButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(cariButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 190, -1, -1));
+        getContentPane().add(cariButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 190, -1, -1));
 
         ngokoText.setEditable(false);
         ngokoText.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -102,21 +102,21 @@ public class Kamusku extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Javanese Text", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Indonesia");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 90, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 100, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Javanese Text", 1, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Ngoko Lugu");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 230, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 240, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Javanese Text", 1, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Krama Inggil");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 320, -1, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 330, -1, -1));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/free-wayang-vector.png"))); // NOI18N
         jLabel5.setText("jLabel5");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(-80, -10, 480, 510));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(-60, -40, 490, 560));
 
         menuFile.setText("File");
 
@@ -158,7 +158,7 @@ public class Kamusku extends javax.swing.JFrame {
             c = indoText.getText().substring(0, 1).toUpperCase() + indoText.getText().substring(1, indoText.getText().length());
         }
         s.setIndo(c);
-        s.setAngka(s.hitung(indoText.getText()));
+        
         TreeNode cari = kamus.searchNode(s);
         if (cari != null) {
             ngokoText.setText(cari.getData().getNgoko());

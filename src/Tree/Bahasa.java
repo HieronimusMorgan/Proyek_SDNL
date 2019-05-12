@@ -14,7 +14,6 @@ public class Bahasa {
     private String indo;
     private String ngoko;
     private String kromo;
-    private int angka;
 
     /**
      * @return the indo
@@ -56,14 +55,6 @@ public class Bahasa {
      */
     public void setKromo(String kromo) {
         this.kromo = kromo;
-    }
-
-    public int getAngka() {
-        return angka;
-    }
-
-    public void setAngka(int angka) {
-        this.angka = angka;
     }
 
     public int hitung(String a) {

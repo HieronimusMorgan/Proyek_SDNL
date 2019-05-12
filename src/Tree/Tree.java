@@ -37,13 +37,6 @@ public class Tree {
                     bahasa.setIndo(rs.getString(1));
                     bahasa.setNgoko(rs.getString(2));
                     bahasa.setKromo(rs.getString(3));
-                    int kuncia = 0;
-                    for (int i = 0; i < bahasa.getIndo().length(); i++) {
-                        char keyChar = bahasa.getIndo().charAt(i);
-                        int kunci = (int) keyChar - (int) 'a' + 1;
-                        kuncia += kunci;
-                    }
-                    bahasa.setAngka(kuncia);
                     insertNode(bahasa);
                     a++;
                 }
@@ -165,37 +158,10 @@ public class Tree {
 //        }
 //        return null;
 //    }
-//
-//    public TreeNode search(int key) {
-//        TreeNode cari = root;
-//        while (!isEmpty()) {
-//            if (cari == null) {
-//                System.out.println("Data " + key + " Tidak Ada !");
-//                break;
-//            } else {
-//                if (key == cari.getData()) {
-//                    System.out.println("Ditemukan data ke - "
-//                            + cari.getData());
-//                    return cari;
-//                } else {
-//                    if (key > cari.getData()) {
-//                        System.out.println("Cabang kanan dari data "
-//                                + "ke - " + cari.getData());
-//                        cari = cari.getRightNode();
-//                    } else {
-//                        System.out.println("Cabang kiri dari data "
-//                                + "ke - " + cari.getData());
-//                        cari = cari.getLeftNode();
-//                    }
-//                }
-//            }
-//        }
-//        return null;
-//    }
-//    
 
     public TreeNode searchNode(Bahasa key) {
         TreeNode cari = root;
+        int a = 0;
         while (!isEmpty()) {
             if (cari == null) {
                 break;
@@ -205,11 +171,13 @@ public class Tree {
                     return cari;
                 } else {
                     if (key.getIndo().charAt(0) > cari.getData().getIndo().charAt(0)) {
-//                        System.out.println("cari kanan");
+                        System.out.println("cari kanan " + a);
                         cari = cari.getRightNode();
+                        a++;
                     } else {
-//                        System.out.println("cari kiri");
+                        System.out.println("cari kiri " + a);
                         cari = cari.getLeftNode();
+                        a++;
                     }
                 }
             }
@@ -321,7 +289,7 @@ public class Tree {
     private void inOrderHelper(TreeNode node) {
         if (node != null) {
             inOrderHelper(node.getLeftNode());
-            System.out.print(node.getData().getIndo()+ " ");
+            System.out.print(node.getData().getIndo() + " ");
             inOrderHelper(node.getRightNode());
         }
     }

@@ -5,6 +5,7 @@
  */
 package Test;
 
+import Tree.Bahasa;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
@@ -20,13 +21,12 @@ public class readCSV1 {
     public static void main(String[] args) {
         String fileName = "src/DataJawaEdit.csv";
         File file = new File(fileName);
+        Bahasa a = new Bahasa();
         try {
             Scanner inputStream = new Scanner(file);
 //            inputStream.useDelimiter(",");
             while (inputStream.hasNext()) {
                 String data = inputStream.next();
-//               data.replaceAll("\\s", "");
-//               data.split(",");
                 System.out.println(data + " ");
             }
             inputStream.close();
