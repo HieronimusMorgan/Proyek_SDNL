@@ -13,7 +13,8 @@ public class Bahasa {
 
     private String indo;
     private String ngoko;
-    private String kromo;
+    private String krama;
+    private String kramaInggil;
 
     /**
      * @return the indo
@@ -44,19 +45,28 @@ public class Bahasa {
     }
 
     /**
-     * @return the kromo
+     * @return the krama
      */
-    public String getKromo() {
-        return kromo;
+    public String getKrama() {
+        return krama;
     }
 
     /**
-     * @param kromo the kromo to set
+     * @param krama the krama to set
      */
-    public void setKromo(String kromo) {
-        this.kromo = kromo;
+    public void setKrama(String krama) {
+        this.krama = krama;
     }
 
+    public String getKramaInggil() {
+        return kramaInggil;
+    }
+
+    public void setKramaInggil(String kramaInggil) {
+        this.kramaInggil = kramaInggil;
+    }
+
+    
     public int hitung(String a) {
         int kuncia = 0;
         for (int i = 0; i < getIndo().length(); i++) {

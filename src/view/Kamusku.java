@@ -162,7 +162,7 @@ public class Kamusku extends javax.swing.JFrame {
         TreeNode cari = kamus.searchNode(s);
         if (cari != null) {
             ngokoText.setText(cari.getData().getNgoko());
-            kramaText.setText(cari.getData().getKromo());
+            kramaText.setText(cari.getData().getKrama());
         } else {
             JOptionPane.showMessageDialog(null, "Kata Tidak Tersedia");
         }
