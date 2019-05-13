@@ -158,20 +158,17 @@ public class Kamusku extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void indoTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_indoTextActionPerformed
-        // TODO add your handling code here:
+        cariButtonActionPerformed(evt);
     }//GEN-LAST:event_indoTextActionPerformed
 
     private void cariButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cariButtonActionPerformed
         Bahasa s = new Bahasa();
         String c = indoText.getText();
         int kunci = (int) c.charAt(0);
-        System.out.println(kunci);
         if (kunci > 0) {
             c = indoText.getText().substring(0, 1).toUpperCase() + indoText.getText().substring(1, indoText.getText().length());
         }
         s.setIndo(c);
-        System.out.println(s.getIndo()+s.getKrama()+s.getKramaInggil());
-        
         TreeNode cari = kamus.searchNode(s);
         if (cari != null) {
             ngokoText.setText(cari.getData().getNgoko());

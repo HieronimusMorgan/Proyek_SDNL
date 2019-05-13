@@ -27,7 +27,6 @@ public class Tree {
                 Statement st = (Statement) con.createStatement();
                 String sql = ("SELECT * FROM bahasabarubanget");
                 ResultSet rs = st.executeQuery(sql);
-                int a = 0;
                 while (rs.next()) {
                     Bahasa bahasa = new Bahasa();
                     bahasa.setIndo(rs.getString(4));
@@ -35,9 +34,7 @@ public class Tree {
                     bahasa.setKrama(rs.getString(2));
                     bahasa.setKramaInggil(rs.getString(3));
                     insertNode(bahasa);
-                    a++;
                 }
-                System.out.println(a);
             }
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | SQLException ex) {
             Logger.getLogger(Tree.class.getName()).log(Level.SEVERE, null, ex);
