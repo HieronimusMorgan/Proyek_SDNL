@@ -30,10 +30,10 @@ public class Tree {
                 int a = 0;
                 while (rs.next()) {
                     Bahasa bahasa = new Bahasa();
-                    bahasa.setIndo(rs.getString(1));
-                    bahasa.setNgoko(rs.getString(2));
-                    bahasa.setKrama(rs.getString(3));
-                    bahasa.setKramaInggil(rs.getString(4));
+                    bahasa.setIndo(rs.getString(4));
+                    bahasa.setNgoko(rs.getString(1));
+                    bahasa.setKrama(rs.getString(2));
+                    bahasa.setKramaInggil(rs.getString(3));
                     insertNode(bahasa);
                     a++;
                 }
@@ -52,6 +52,29 @@ public class Tree {
             getRoot().insert(key);
             size++;
         }
+    }
+
+    public TreeNode searchNode(Bahasa key) {
+        TreeNode cari = root;
+        int a = 0;
+        while (!isEmpty()) {
+            if (cari == null) {
+                break;
+            } else {
+                if (key.getIndo().equalsIgnoreCase(cari.getData().getIndo())) {
+                    return cari;
+                } else {
+                    if (key.getIndo().charAt(0) > cari.getData().getIndo().charAt(0)) {
+                        cari = cari.getRightNode();
+                        a++;
+                    } else {
+                        cari = cari.getLeftNode();
+                        a++;
+                    }
+                }
+            }
+        }
+        return null;
     }
 
     public void depthNode(Bahasa key) {
@@ -136,32 +159,6 @@ public class Tree {
                         cari = cari.getRightNode();
                     } else {
                         cari = cari.getLeftNode();
-                    }
-                }
-            }
-        }
-        return null;
-    }
-
-    public TreeNode searchNode(Bahasa key) {
-        TreeNode cari = root;
-        int a = 0;
-        while (!isEmpty()) {
-            if (cari == null) {
-                break;
-            } else {
-                if (key.getIndo().equalsIgnoreCase(cari.getData().getIndo())) {
-                    System.out.println(cari.getData().getKrama());
-                    return cari;
-                } else {
-                    if (key.getIndo().charAt(0) > cari.getData().getIndo().charAt(0)) {
-                        System.out.println("cari kanan " + a);
-                        cari = cari.getRightNode();
-                        a++;
-                    } else {
-                        System.out.println("cari kiri " + a);
-                        cari = cari.getLeftNode();
-                        a++;
                     }
                 }
             }

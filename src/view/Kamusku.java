@@ -45,7 +45,9 @@ public class Kamusku extends javax.swing.JFrame {
         cariButton = new javax.swing.JButton();
         ngokoText = new javax.swing.JTextField();
         kramaText = new javax.swing.JTextField();
+        kramaInggilText = new javax.swing.JTextField();
         bersihButton = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -71,7 +73,7 @@ public class Kamusku extends javax.swing.JFrame {
                 indoTextActionPerformed(evt);
             }
         });
-        getContentPane().add(indoText, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 140, 243, 40));
+        getContentPane().add(indoText, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, 243, 40));
 
         cariButton.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         cariButton.setText("Cari");
@@ -80,15 +82,19 @@ public class Kamusku extends javax.swing.JFrame {
                 cariButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(cariButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 190, -1, -1));
+        getContentPane().add(cariButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 160, -1, -1));
 
         ngokoText.setEditable(false);
         ngokoText.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        getContentPane().add(ngokoText, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 280, 242, 35));
+        getContentPane().add(ngokoText, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, 242, 35));
 
         kramaText.setEditable(false);
         kramaText.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        getContentPane().add(kramaText, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 370, 243, 35));
+        getContentPane().add(kramaText, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 310, 243, 35));
+
+        kramaInggilText.setEditable(false);
+        kramaInggilText.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        getContentPane().add(kramaInggilText, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 380, 243, 35));
 
         bersihButton.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         bersihButton.setText("Clean");
@@ -97,22 +103,27 @@ public class Kamusku extends javax.swing.JFrame {
                 bersihButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(bersihButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 420, -1, -1));
+        getContentPane().add(bersihButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 430, -1, -1));
+
+        jLabel6.setFont(new java.awt.Font("Javanese Text", 1, 24)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("Krama Inggil");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 340, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Javanese Text", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Indonesia");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 100, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 70, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Javanese Text", 1, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Ngoko Lugu");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 240, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Javanese Text", 1, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Krama Inggil");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 330, -1, -1));
+        jLabel4.setText("Krama");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 270, -1, -1));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/free-wayang-vector.png"))); // NOI18N
         jLabel5.setText("jLabel5");
@@ -154,15 +165,18 @@ public class Kamusku extends javax.swing.JFrame {
         Bahasa s = new Bahasa();
         String c = indoText.getText();
         int kunci = (int) c.charAt(0);
+        System.out.println(kunci);
         if (kunci > 0) {
             c = indoText.getText().substring(0, 1).toUpperCase() + indoText.getText().substring(1, indoText.getText().length());
         }
         s.setIndo(c);
+        System.out.println(s.getIndo()+s.getKrama()+s.getKramaInggil());
         
         TreeNode cari = kamus.searchNode(s);
         if (cari != null) {
             ngokoText.setText(cari.getData().getNgoko());
             kramaText.setText(cari.getData().getKrama());
+            kramaInggilText.setText(cari.getData().getKramaInggil());
         } else {
             JOptionPane.showMessageDialog(null, "Kata Tidak Tersedia");
         }
@@ -228,7 +242,9 @@ public class Kamusku extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JTextField kramaInggilText;
     private javax.swing.JTextField kramaText;
     private javax.swing.JMenuItem menuDaftar;
     private javax.swing.JMenu menuFile;
