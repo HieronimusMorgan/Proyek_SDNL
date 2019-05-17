@@ -132,6 +132,11 @@ public class Kamusku extends javax.swing.JFrame {
         menuFile.setText("File");
 
         menuDaftar.setText("Daftar");
+        menuDaftar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuDaftarActionPerformed(evt);
+            }
+        });
         menuFile.add(menuDaftar);
 
         menuTentang.setText("Tentang");
@@ -194,6 +199,10 @@ public class Kamusku extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.dispose();
     }//GEN-LAST:event_menuKeluarActionPerformed
+
+    private void menuDaftarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuDaftarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_menuDaftarActionPerformed
 
     /**
      * @param args the command line arguments
