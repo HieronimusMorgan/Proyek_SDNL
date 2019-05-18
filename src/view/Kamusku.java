@@ -74,7 +74,7 @@ public class Kamusku extends javax.swing.JFrame {
         jTextArea1.setCaretPosition(0);
         jScrollPane1.setViewportView(jTextArea1);
 
-        Daftar.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 430, 440));
+        Daftar.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 440, 440));
 
         jButton1.setText("Tutup");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
