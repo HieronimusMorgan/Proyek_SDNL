@@ -20,7 +20,7 @@ public class daftarKata extends javax.swing.JFrame {
      */
     public daftarKata(Tree node) {
         initComponents();
-        TextDaftar.setText("Indonesia\tNgoko\tKrama\tKrama Inggil\n" + node.inOrderHelpera(node.getRoot()));
+        TextDaftar.setText("Indonesia\tNgoko\tKrama\tKrama Inggil\n\n" + node.inOrderHelpera(node.getRoot()));
     }
 
     /**
@@ -37,7 +37,7 @@ public class daftarKata extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         TextDaftar.setColumns(20);
         TextDaftar.setRows(5);

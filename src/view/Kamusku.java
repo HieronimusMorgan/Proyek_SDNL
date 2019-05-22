@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
  * @author asus
  */
 public class Kamusku extends javax.swing.JFrame {
-    
+
     public static Tree kamus = new Tree();
 
     /**
@@ -25,7 +25,7 @@ public class Kamusku extends javax.swing.JFrame {
         initComponents();
         load();
     }
-    
+
     public void load() {
         kamus.bacaData();
     }
@@ -139,7 +139,7 @@ public class Kamusku extends javax.swing.JFrame {
         });
         menuFile.add(menuDaftar);
 
-        menuDelete.setText("Hapus Kata");
+        menuDelete.setText("Hapus");
         menuDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menuDeleteActionPerformed(evt);
@@ -197,10 +197,12 @@ public class Kamusku extends javax.swing.JFrame {
         indoText.setText("");
         ngokoText.setText("");
         kramaText.setText("");
+        kramaInggilText.setText("");
     }//GEN-LAST:event_bersihButtonActionPerformed
 
     private void menuTentangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuTentangActionPerformed
-        // TODO add your handling code here:
+      JOptionPane.showMessageDialog(null, "Aplikasi Kamus Bahasa Jawa dengan 800++\nBahasa Indonesia, Ngoko, Krama, dan Krama Inggil\n\nAuthors :"
+              + "\nHieronimus Fredy Morgan(175314080)\nGabriel Ryan (175314084)");
     }//GEN-LAST:event_menuTentangActionPerformed
 
     private void menuKeluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuKeluarActionPerformed
@@ -209,13 +211,15 @@ public class Kamusku extends javax.swing.JFrame {
     }//GEN-LAST:event_menuKeluarActionPerformed
 
     private void menuDaftarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuDaftarActionPerformed
+        bersihButtonActionPerformed(evt);
         daftarKata a = new daftarKata(kamus);
         a.setVisible(true);
     }//GEN-LAST:event_menuDaftarActionPerformed
 
     private void menuDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuDeleteActionPerformed
-       hapusKata a = new hapusKata();
-       a.setVisible(true);
+        bersihButtonActionPerformed(evt);
+        hapusKata a = new hapusKata();
+        a.setVisible(true);
     }//GEN-LAST:event_menuDeleteActionPerformed
 
     /**

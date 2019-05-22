@@ -258,11 +258,7 @@ public class Tree {
         }
     }
 
-    public void inOrderTranversal() {
-        System.out.println("Indonesia\tNgoko\tKrama\tKrama Inggil\n");
-        inOrderHelpera(root);
-    }
-    String d = "";
+    private String d = "";
 
     public String inOrderHelpera(TreeNode node) {
 
