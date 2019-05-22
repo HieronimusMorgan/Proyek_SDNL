@@ -16,11 +16,10 @@ public class daftarKata extends javax.swing.JFrame {
     /**
      * Creates new form daftarKata
      *
-     * @param node
      */
-    public daftarKata(Tree node) {
+    public daftarKata() {
         initComponents();
-        TextDaftar.setText("Indonesia\tNgoko\tKrama\tKrama Inggil\n\n" + node.inOrderHelpera(node.getRoot()));
+        TextDaftar.setText("Indonesia\tNgoko\tKrama\tKrama Inggil\n\n" + Kamusku.kamus.inOrderHelpera(Kamusku.kamus.getRoot()));
     }
 
     /**
@@ -81,7 +80,8 @@ public class daftarKata extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        this.dispose();
+        TextDaftar.setText("");
+        TextDaftar.setText("Indonesia\tNgoko\tKrama\tKrama Inggil\n\n" + Kamusku.kamus.inOrderHelpera(Kamusku.kamus.getRoot()));
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -113,7 +113,7 @@ public class daftarKata extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
-            new daftarKata(Kamusku.kamus).setVisible(true);
+            new daftarKata().setVisible(true);
         });
     }
 

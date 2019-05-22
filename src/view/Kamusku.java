@@ -212,7 +212,7 @@ public class Kamusku extends javax.swing.JFrame {
 
     private void menuDaftarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuDaftarActionPerformed
         bersihButtonActionPerformed(evt);
-        daftarKata a = new daftarKata(kamus);
+        daftarKata a = new daftarKata();
         a.setVisible(true);
     }//GEN-LAST:event_menuDaftarActionPerformed
 
