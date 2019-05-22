@@ -259,13 +259,29 @@ public class Tree {
     }
 
     public void inOrderTranversal() {
-        inOrderHelper(root);
+        System.out.println("Indonesia\tNgoko\tKrama\tKrama Inggil");
+        inOrderHelpera(root);
+    }
+    String d = "";
+
+    public String inOrderHelpera(TreeNode node) {
+
+        if (node != null) {
+            inOrderHelpera(node.getLeftNode());
+            d = d + node.getData().getIndo() + "\t" + node.getData().getNgoko() + "\t"
+                    + node.getData().getKrama() + "\t" + node.getData().getKramaInggil() + "\t\n";
+            inOrderHelpera(node.getRightNode());
+        } else {
+            return d;
+        }
+        return d;
     }
 
     private void inOrderHelper(TreeNode node) {
         if (node != null) {
             inOrderHelper(node.getLeftNode());
-            System.out.print(node.getData().getIndo() + " ");
+            System.out.println(node.getData().getIndo() + "\t" + node.getData().getNgoko() + "\t"
+                    + node.getData().getKrama() + "\t" + node.getData().getKramaInggil() + "\t");
             inOrderHelper(node.getRightNode());
         }
     }
@@ -300,5 +316,18 @@ public class Tree {
 
     public void setSize(int size) {
         this.size = size;
+    }
+
+    @Override
+    public String toString() {
+        String a = " ";
+        TreeNode node = root;
+        while (node != null) {
+            node.getLeftNode();
+            a = a + node.getData().getIndo() + "\t" + node.getData().getNgoko() + "\t"
+                    + node.getData().getKrama() + "\t" + node.getData().getKramaInggil() + "\t";
+            node.getRightNode();
+        }
+        return a;
     }
 }
