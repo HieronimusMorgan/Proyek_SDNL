@@ -259,7 +259,7 @@ public class Tree {
     }
 
     public void inOrderTranversal() {
-        System.out.println("Indonesia\tNgoko\tKrama\tKrama Inggil");
+        System.out.println("Indonesia\tNgoko\tKrama\tKrama Inggil\n");
         inOrderHelpera(root);
     }
     String d = "";
@@ -318,16 +318,4 @@ public class Tree {
         this.size = size;
     }
 
-    @Override
-    public String toString() {
-        String a = " ";
-        TreeNode node = root;
-        while (node != null) {
-            node.getLeftNode();
-            a = a + node.getData().getIndo() + "\t" + node.getData().getNgoko() + "\t"
-                    + node.getData().getKrama() + "\t" + node.getData().getKramaInggil() + "\t";
-            node.getRightNode();
-        }
-        return a;
-    }
 }
