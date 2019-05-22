@@ -24,12 +24,10 @@ public class Kamusku extends javax.swing.JFrame {
     public Kamusku() {
         initComponents();
         load();
-        Daftar.setVisible(false);
     }
     
     public void load() {
         kamus.bacaData();
-        System.out.println(kamus.getRoot().getData().getIndo());
     }
 
     /**
@@ -42,10 +40,6 @@ public class Kamusku extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        Daftar = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        TextDaftar = new javax.swing.JTextArea();
-        jButton1 = new javax.swing.JButton();
         indoText = new javax.swing.JTextField();
         cariButton = new javax.swing.JButton();
         ngokoText = new javax.swing.JTextField();
@@ -71,25 +65,6 @@ public class Kamusku extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Kamus Jawa");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 30, 240, -1));
-
-        Daftar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        TextDaftar.setColumns(20);
-        TextDaftar.setRows(5);
-        TextDaftar.setCaretPosition(0);
-        jScrollPane1.setViewportView(TextDaftar);
-
-        Daftar.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 440, 440));
-
-        jButton1.setText("Tutup");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        Daftar.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 460, -1, -1));
-
-        getContentPane().add(Daftar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         indoText.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         indoText.addActionListener(new java.awt.event.ActionListener() {
@@ -149,6 +124,7 @@ public class Kamusku extends javax.swing.JFrame {
         jLabel4.setText("Krama");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 270, -1, -1));
 
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/free-wayang-vector.png"))); // NOI18N
         jLabel5.setText("jLabel5");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(-60, -40, 490, 560));
 
@@ -228,11 +204,6 @@ public class Kamusku extends javax.swing.JFrame {
         a.setVisible(true);
     }//GEN-LAST:event_menuDaftarActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        Daftar.setVisible(false);
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -269,12 +240,9 @@ public class Kamusku extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel Daftar;
-    private javax.swing.JTextArea TextDaftar;
     private javax.swing.JButton bersihButton;
     private javax.swing.JButton cariButton;
     private javax.swing.JTextField indoText;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -282,7 +250,6 @@ public class Kamusku extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField kramaInggilText;
     private javax.swing.JTextField kramaText;
     private javax.swing.JMenuItem menuDaftar;
