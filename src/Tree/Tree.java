@@ -258,28 +258,18 @@ public class Tree {
         }
     }
 
-    private String d = "";
+    public static String inorder = "";
 
     public String inOrderHelpera(TreeNode node) {
-
         if (node != null) {
             inOrderHelpera(node.getLeftNode());
-            d = d + node.getData().getIndo() + "\t" + node.getData().getNgoko() + "\t"
+            inorder = inorder + node.getData().getIndo() + "\t" + node.getData().getNgoko() + "\t"
                     + node.getData().getKrama() + "\t" + node.getData().getKramaInggil() + "\t\n";
-            inOrderHelpera(node.getRightNode());
-        } else {
-            return d;
-        }
-        return d;
-    }
-
-    private void inOrderHelper(TreeNode node) {
-        if (node != null) {
-            inOrderHelper(node.getLeftNode());
             System.out.println(node.getData().getIndo() + "\t" + node.getData().getNgoko() + "\t"
-                    + node.getData().getKrama() + "\t" + node.getData().getKramaInggil() + "\t");
-            inOrderHelper(node.getRightNode());
+                    + node.getData().getKrama() + "\t" + node.getData().getKramaInggil() + "\t\n");
+            inOrderHelpera(node.getRightNode());
         }
+        return inorder;
     }
 
     public void postOrderTransversal() {

@@ -37,6 +37,7 @@ public class daftarKata extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setUndecorated(true);
 
         TextDaftar.setColumns(20);
         TextDaftar.setRows(5);
@@ -80,8 +81,9 @@ public class daftarKata extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Tree.inorder = "";
         TextDaftar.setText("");
-        TextDaftar.setText("Indonesia\tNgoko\tKrama\tKrama Inggil\n\n" + Kamusku.kamus.inOrderHelpera(Kamusku.kamus.getRoot()));
+        this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
