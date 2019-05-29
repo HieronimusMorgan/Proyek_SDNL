@@ -74,95 +74,6 @@ public class Tree {
         return null;
     }
 
-    public void depthNode(Bahasa key) {
-        TreeNode cari = root;
-        int hitung = 0;
-        while (!isEmpty()) {
-            if (cari == null) {
-                break;
-            } else {
-                if (key == cari.getData()) {
-                    System.out.println("Dept Node "
-                            + key + " adalah " + hitung);
-                    break;
-                } else {
-                    if (key.getKrama().charAt(0) > cari.getData().getKrama().charAt(0)) {
-                        cari = cari.getRightNode();
-                        hitung++;
-                    } else {
-                        cari = cari.getLeftNode();
-                        hitung++;
-                    }
-                }
-            }
-        }
-    }
-
-    public void heightNode(Bahasa key) {
-        TreeNode cari = root;
-        int hitung = 1;
-        while (!isEmpty()) {
-            if (cari == null) {
-                break;
-            } else {
-                if (key.getIndo().equalsIgnoreCase(cari.getData().getIndo())) {
-                    System.out.println("Height Node "
-                            + key + " adalah " + hitung);
-                    break;
-                } else {
-                    if (key.getIndo().charAt(0) > cari.getData().getIndo().charAt(0)) {
-                        cari = cari.getRightNode();
-                        hitung++;
-                    } else {
-                        cari = cari.getLeftNode();
-                        hitung++;
-                    }
-                }
-            }
-        }
-    }
-
-    public void leafNode() {
-        postOrderLeaf(root);
-    }
-
-    private void postOrderLeaf(TreeNode node) {
-        if (node != null) {
-            postOrderLeaf(node.getLeftNode());
-            postOrderLeaf(node.getRightNode());
-            if (node.getLeftNode() == null && node.getRightNode() == null) {
-                System.out.print(node.getData() + " ");
-            }
-        }
-    }
-
-    public void descendant(Bahasa key) {
-        TreeNode node = descendantSearch(key);
-        preOrderHelper(node.getLeftNode());
-        preOrderHelper(node.getRightNode());
-    }
-
-    private TreeNode descendantSearch(Bahasa key) {
-        TreeNode cari = root;
-        while (!isEmpty()) {
-            if (cari == null) {
-                System.out.println("Data " + key + " Tidak Ada !");
-                break;
-            } else {
-                if (key.getIndo().equalsIgnoreCase(cari.getData().getIndo())) {
-                    return cari;
-                } else {
-                    if (key.getIndo().charAt(0) > cari.getData().getIndo().charAt(0)) {
-                        cari = cari.getRightNode();
-                    } else {
-                        cari = cari.getLeftNode();
-                    }
-                }
-            }
-        }
-        return null;
-    }
-
     public boolean delete(Bahasa key) {
         TreeNode bantu = searchNode(key);
         TreeNode parent = getCurrent(key);
@@ -246,17 +157,6 @@ public class Tree {
         return null;
     }
 
-    public void preOrderTransversal() {
-        preOrderHelper(root);
-    }
-
-    private void preOrderHelper(TreeNode node) {
-        if (node != null) {
-            System.out.print(node.getData().getKrama() + " ");
-            preOrderHelper(node.getLeftNode());
-            preOrderHelper(node.getRightNode());
-        }
-    }
 
     public static String inorder = "";
 
@@ -272,17 +172,6 @@ public class Tree {
         return inorder;
     }
 
-    public void postOrderTransversal() {
-        postOrderHelper(root);
-    }
-
-    private void postOrderHelper(TreeNode node) {
-        if (node != null) {
-            postOrderHelper(node.getLeftNode());
-            postOrderHelper(node.getRightNode());
-            System.out.print(node.getData().getKrama() + " ");
-        }
-    }
 
     public TreeNode getRoot() {
         return root;

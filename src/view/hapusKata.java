@@ -34,13 +34,17 @@ public class hapusKata extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         hapusButton = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        hapusButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(kataText, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 94, 170, 30));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Indonesia");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(98, 66, -1, -1));
 
         hapusButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         hapusButton.setText("HAPUS");
@@ -49,40 +53,21 @@ public class hapusKata extends javax.swing.JFrame {
                 hapusButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(hapusButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 140, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("HAPUS KATA");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, 254, 37));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(98, 98, 98)
-                .addComponent(jLabel1))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(52, 52, 52)
-                .addComponent(kataText, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(93, 93, 93)
-                .addComponent(hapusButton))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(11, 11, 11)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel1)
-                .addGap(6, 6, 6)
-                .addComponent(kataText, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(hapusButton))
-        );
+        hapusButton1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        hapusButton1.setText("BATAL");
+        hapusButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                hapusButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(hapusButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -99,6 +84,11 @@ public class hapusKata extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, "Kata " + kataText.getText() + " telah dihapus !");
         this.dispose();
     }//GEN-LAST:event_hapusButtonActionPerformed
+
+    private void hapusButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hapusButton1ActionPerformed
+        // TODO add your handling code here:
+       this.dispose();
+    }//GEN-LAST:event_hapusButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -137,6 +127,7 @@ public class hapusKata extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton hapusButton;
+    private javax.swing.JButton hapusButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JTextField kataText;
