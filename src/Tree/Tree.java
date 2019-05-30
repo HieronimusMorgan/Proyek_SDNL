@@ -72,83 +72,19 @@ public class Tree {
         }
         return null;
     }
-    
-    public boolean delete(Bahasa key) {
-        TreeNode bantu = searchNode(key);
-        TreeNode parent = getCurrent(key);
-        if (bantu.getLeftNode() == null && bantu.getRightNode() == null) {
-            if (parent.getLeftNode() == bantu) {
-                parent.setLeftNode(null);
-                return true;
-            } else {
-                parent.setRightNode(null);
-                return true;
-            }
-        } else if (bantu.getLeftNode() == null
-                || bantu.getRightNode() == null) {
-            if (parent.getLeftNode() == bantu) {
-                if (bantu.getLeftNode() == null) {
-                    parent.setLeftNode(bantu.getRightNode());
-                    return true;
-                } else {
-                    parent.setLeftNode(bantu.getLeftNode());
-                    return true;
-                }
-            } else {
-                if (bantu.getLeftNode() == null) {
-                    parent.setRightNode(bantu.getRightNode());
-                    return true;
-                } else {
-                    parent.setRightNode(bantu.getLeftNode());
-                    return true;
-                }
-            }
-        } else {
-            if (key.getIndo().charAt(0) > root.getData().getIndo().charAt(0)) {
-                TreeNode predeccessor = getPredeccessor(parent.getLeftNode());
-                bantu.setData(predeccessor.getData());
-                if (predeccessor.isLeaf()) {
-                    TreeNode cariKanan = bantu.getLeftNode();
-                    while (bantu.getRightNode() != null) {
-                        cariKanan = bantu;
-                        bantu = bantu.getRightNode();
-                    }
-                    cariKanan.setRightNode(null);
-                    return true;
-                } else {
-                    bantu.setData(bantu.getLeftNode().getData());
-                    bantu.setLeftNode(null);
-                    return true;
-                }
-            }
-            return false;
-        }
-    }
-
-    public TreeNode getPredeccessor(TreeNode del) {
-        TreeNode predeccessor = del;
-        while (predeccessor.getRightNode() != null) {
-            predeccessor = predeccessor.getRightNode();
-        }
-        return predeccessor;
-    }
-
-    public TreeNode getCurrent(Bahasa key) {
+    public TreeNode searchNode(String key) {
         TreeNode cari = root;
-        TreeNode parent = root;
         while (!isEmpty()) {
             if (cari == null) {
                 break;
             } else {
-                if (key.getIndo().equalsIgnoreCase(cari.getData().getIndo())) {
-                    return parent;
+                if (key.equalsIgnoreCase(cari.getData().getIndo())) {
+                    return cari;
                 } else {
-                    if (key.getIndo().charAt(0)
+                    if (key.charAt(0)
                             > cari.getData().getIndo().charAt(0)) {
-                        parent = cari;
                         cari = cari.getRightNode();
                     } else {
-                        parent = cari;
                         cari = cari.getLeftNode();
                     }
                 }
@@ -156,7 +92,6 @@ public class Tree {
         }
         return null;
     }
-
     public static String inorder = "";
 
     public String inOrderHelpera(TreeNode node) {

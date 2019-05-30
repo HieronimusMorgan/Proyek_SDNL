@@ -53,8 +53,6 @@ public class Kamusku extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         menuFile = new javax.swing.JMenu();
-        menuDaftar = new javax.swing.JMenuItem();
-        menuDelete = new javax.swing.JMenuItem();
         menuTentang = new javax.swing.JMenuItem();
         menuKeluar = new javax.swing.JMenuItem();
 
@@ -133,22 +131,6 @@ public class Kamusku extends javax.swing.JFrame {
 
         menuFile.setText("File");
 
-        menuDaftar.setText("Daftar");
-        menuDaftar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuDaftarActionPerformed(evt);
-            }
-        });
-        menuFile.add(menuDaftar);
-
-        menuDelete.setText("Hapus");
-        menuDelete.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuDeleteActionPerformed(evt);
-            }
-        });
-        menuFile.add(menuDelete);
-
         menuTentang.setText("Tentang");
         menuTentang.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -212,18 +194,6 @@ public class Kamusku extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_menuKeluarActionPerformed
 
-    private void menuDaftarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuDaftarActionPerformed
-        bersihButtonActionPerformed(evt);
-        daftarKata a = new daftarKata();
-        a.setVisible(true);
-    }//GEN-LAST:event_menuDaftarActionPerformed
-
-    private void menuDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuDeleteActionPerformed
-        bersihButtonActionPerformed(evt);
-        hapusKata a = new hapusKata();
-        a.setVisible(true);
-    }//GEN-LAST:event_menuDeleteActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -272,8 +242,6 @@ public class Kamusku extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JTextField kramaInggilText;
     private javax.swing.JTextField kramaText;
-    private javax.swing.JMenuItem menuDaftar;
-    private javax.swing.JMenuItem menuDelete;
     private javax.swing.JMenu menuFile;
     private javax.swing.JMenuItem menuKeluar;
     private javax.swing.JMenuItem menuTentang;
