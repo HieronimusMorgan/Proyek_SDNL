@@ -37,6 +37,7 @@ public class hapusKata extends javax.swing.JFrame {
         hapusButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setLocation(new java.awt.Point(500, 200));
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         getContentPane().add(kataText, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 94, 170, 30));
