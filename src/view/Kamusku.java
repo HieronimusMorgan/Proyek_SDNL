@@ -203,7 +203,7 @@ public class Kamusku extends javax.swing.JFrame {
 
     private void menuTentangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuTentangActionPerformed
       JOptionPane.showMessageDialog(null, "Aplikasi Kamus Bahasa Jawa dengan 800++\nBahasa Indonesia, Ngoko, Krama, dan Krama Inggil\n\nAuthors :"
-              + "\nHieronimus Fredy Morgan(175314080)\nGabriel Ryan Prima (175314084)");
+              + "\nHieronimus Fredy Morgan(175314080)\nGabriel Ryan Prima (175314084)\nSendhy Jaya Raharja (175314051)");
     }//GEN-LAST:event_menuTentangActionPerformed
 
     private void menuKeluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuKeluarActionPerformed
