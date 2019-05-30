@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
  * @author asus
  */
 public class Kamusku extends javax.swing.JFrame {
-
+    
     public static Tree kamus = new Tree();
 
     /**
@@ -25,7 +25,7 @@ public class Kamusku extends javax.swing.JFrame {
         initComponents();
         load();
     }
-
+    
     public void load() {
         kamus.bacaData();
     }
@@ -203,8 +203,8 @@ public class Kamusku extends javax.swing.JFrame {
     }//GEN-LAST:event_bersihButtonActionPerformed
 
     private void menuTentangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuTentangActionPerformed
-      JOptionPane.showMessageDialog(null, "Aplikasi Kamus Bahasa Jawa dengan 800++\nBahasa Indonesia, Ngoko, Krama, dan Krama Inggil\n\nAuthors :"
-              + "\nHieronimus Fredy Morgan(175314080)\nGabriel Ryan Prima (175314084)\nSendhy Jaya Raharja (175314051)");
+        JOptionPane.showMessageDialog(null, "Aplikasi Kamus Bahasa Jawa dengan 800++\nBahasa Indonesia, Ngoko, Krama, dan Krama Inggil\n\nAuthors :"
+                + "\nHieronimus Fredy Morgan(175314080)\nGabriel Ryan Prima (175314084)\nSendhy Jaya Raharja (175314051)");
     }//GEN-LAST:event_menuTentangActionPerformed
 
     private void menuKeluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuKeluarActionPerformed

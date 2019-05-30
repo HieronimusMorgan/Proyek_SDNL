@@ -54,7 +54,6 @@ public class Tree {
 
     public TreeNode searchNode(Bahasa key) {
         TreeNode cari = root;
-        int a = 0;
         while (!isEmpty()) {
             if (cari == null) {
                 break;
@@ -65,17 +64,15 @@ public class Tree {
                     if (key.getIndo().charAt(0)
                             > cari.getData().getIndo().charAt(0)) {
                         cari = cari.getRightNode();
-                        a++;
                     } else {
                         cari = cari.getLeftNode();
-                        a++;
                     }
                 }
             }
         }
         return null;
     }
-
+    
     public boolean delete(Bahasa key) {
         TreeNode bantu = searchNode(key);
         TreeNode parent = getCurrent(key);
@@ -168,7 +165,7 @@ public class Tree {
             inorder = inorder + node.getData().getIndo()
                     + "\t" + node.getData().getNgoko() + "\t"
                     + node.getData().getKrama() + "\t"
-                    + node.getData().getKramaInggil() + "\t\n";
+                    + node.getData().getKramaInggil() + "\n";
             inOrderHelpera(node.getRightNode());
         }
         return inorder;
