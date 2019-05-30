@@ -36,7 +36,8 @@ public class Tree {
                     insertNode(bahasa);
                 }
             }
-        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | SQLException ex) {
+        } catch (ClassNotFoundException | InstantiationException
+                | IllegalAccessException | SQLException ex) {
             Logger.getLogger(Tree.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
@@ -61,7 +62,8 @@ public class Tree {
                 if (key.getIndo().equalsIgnoreCase(cari.getData().getIndo())) {
                     return cari;
                 } else {
-                    if (key.getIndo().charAt(0) > cari.getData().getIndo().charAt(0)) {
+                    if (key.getIndo().charAt(0)
+                            > cari.getData().getIndo().charAt(0)) {
                         cari = cari.getRightNode();
                         a++;
                     } else {
@@ -144,7 +146,8 @@ public class Tree {
                 if (key.getIndo().equalsIgnoreCase(cari.getData().getIndo())) {
                     return parent;
                 } else {
-                    if (key.getIndo().charAt(0) > cari.getData().getIndo().charAt(0)) {
+                    if (key.getIndo().charAt(0)
+                            > cari.getData().getIndo().charAt(0)) {
                         parent = cari;
                         cari = cari.getRightNode();
                     } else {
@@ -157,21 +160,19 @@ public class Tree {
         return null;
     }
 
-
     public static String inorder = "";
 
     public String inOrderHelpera(TreeNode node) {
         if (node != null) {
             inOrderHelpera(node.getLeftNode());
-            inorder = inorder + node.getData().getIndo() + "\t" + node.getData().getNgoko() + "\t"
-                    + node.getData().getKrama() + "\t" + node.getData().getKramaInggil() + "\t\n";
-            System.out.println(node.getData().getIndo() + "\t" + node.getData().getNgoko() + "\t"
-                    + node.getData().getKrama() + "\t" + node.getData().getKramaInggil() + "\t\n");
+            inorder = inorder + node.getData().getIndo()
+                    + "\t" + node.getData().getNgoko() + "\t"
+                    + node.getData().getKrama() + "\t"
+                    + node.getData().getKramaInggil() + "\t\n";
             inOrderHelpera(node.getRightNode());
         }
         return inorder;
     }
-
 
     public TreeNode getRoot() {
         return root;
