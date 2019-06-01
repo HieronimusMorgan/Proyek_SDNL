@@ -23,7 +23,8 @@ public class Tree {
     public void bacaData() {
         try {
             Class.forName("com.mysql.jdbc.Driver").newInstance();
-            try (Connection con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/sdnl", "root", "")) {
+            try (Connection con = (Connection) 
+                    DriverManager.getConnection("jdbc:mysql://localhost/sdnl", "root", "")) {
                 Statement st = (Statement) con.createStatement();
                 String sql = ("SELECT * FROM bahasabarubanget");
                 ResultSet rs = st.executeQuery(sql);
@@ -72,26 +73,7 @@ public class Tree {
         }
         return null;
     }
-    public TreeNode searchNode(String key) {
-        TreeNode cari = root;
-        while (!isEmpty()) {
-            if (cari == null) {
-                break;
-            } else {
-                if (key.equalsIgnoreCase(cari.getData().getIndo())) {
-                    return cari;
-                } else {
-                    if (key.charAt(0)
-                            > cari.getData().getIndo().charAt(0)) {
-                        cari = cari.getRightNode();
-                    } else {
-                        cari = cari.getLeftNode();
-                    }
-                }
-            }
-        }
-        return null;
-    }
+    
     public static String inorder = "";
 
     public String inOrderHelpera(TreeNode node) {
