@@ -325,9 +325,6 @@ public class daftarKata extends javax.swing.JFrame {
             row[2] = listTree.get(i).getData().getKrama();
             row[3] = listTree.get(i).getData().getKramaInggil();
             tableModel.addRow(row);
-            if ("Aku".equals(indoText.getText())) {
-                System.out.println("Ada coyyy");
-            }
         }
         jTable1.setModel(tableModel);
 
