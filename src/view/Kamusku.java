@@ -58,7 +58,7 @@ public class Kamusku extends javax.swing.JFrame {
         menuKeluar = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setLocation(new java.awt.Point(500, 100));
+        setLocation(new java.awt.Point(470, 100));
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 

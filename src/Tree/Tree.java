@@ -142,7 +142,7 @@ public class Tree {
             if (cari == null) {
                 break;
             } else {
-                if (key == cari.getData()) {
+                if (key.getIndo().equals(cari.getData().getIndo())) {
                     return parent;
                 } else {
                     if (key.getIndo().charAt(0) > cari.getData().getIndo().charAt(0)) {

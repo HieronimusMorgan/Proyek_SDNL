@@ -66,9 +66,12 @@ public class daftarKata extends javax.swing.JFrame {
         cari2Button = new javax.swing.JButton();
         hapusButton = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocation(new java.awt.Point(300, 100));
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -222,6 +225,15 @@ public class daftarKata extends javax.swing.JFrame {
 
         jPanel1.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 110, 280, 410));
 
+        jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jButton1.setText("Kembali");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 60, 80, -1));
+
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/free-wayang-vector.png"))); // NOI18N
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, 700, 500));
 
@@ -287,6 +299,10 @@ public class daftarKata extends javax.swing.JFrame {
         listTree.clear();
         baca();
     }//GEN-LAST:event_tambahButtonActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     public void baca() {
         DefaultTableModel tableModel = new DefaultTableModel();
@@ -368,6 +384,7 @@ public class daftarKata extends javax.swing.JFrame {
     private javax.swing.JButton hapusButton;
     private javax.swing.JTextField indoText;
     private javax.swing.JTextField indoText1;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
