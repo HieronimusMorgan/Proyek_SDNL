@@ -53,12 +53,13 @@ public class Kamusku extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         menuFile = new javax.swing.JMenu();
-        menuTentang = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
+        menuTentang = new javax.swing.JMenuItem();
         menuKeluar = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(470, 100));
+        setUndecorated(true);
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -127,18 +128,9 @@ public class Kamusku extends javax.swing.JFrame {
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 270, -1, -1));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/free-wayang-vector.png"))); // NOI18N
-        jLabel5.setText("jLabel5");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(-60, -30, 470, 540));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(-90, -10, 500, 510));
 
         menuFile.setText("File");
-
-        menuTentang.setText("Tentang");
-        menuTentang.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuTentangActionPerformed(evt);
-            }
-        });
-        menuFile.add(menuTentang);
 
         jMenuItem1.setText("Daftar Kata");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
@@ -147,6 +139,14 @@ public class Kamusku extends javax.swing.JFrame {
             }
         });
         menuFile.add(jMenuItem1);
+
+        menuTentang.setText("Tentang");
+        menuTentang.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuTentangActionPerformed(evt);
+            }
+        });
+        menuFile.add(menuTentang);
 
         menuKeluar.setText("Keluar");
         menuKeluar.addActionListener(new java.awt.event.ActionListener() {
