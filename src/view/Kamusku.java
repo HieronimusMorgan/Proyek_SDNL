@@ -104,7 +104,7 @@ public class Kamusku extends javax.swing.JFrame {
                 bersihButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(bersihButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 430, -1, -1));
+        getContentPane().add(bersihButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 430, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Javanese Text", 1, 24)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
