@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
  * @author asus
  */
 public class Kamusku extends javax.swing.JFrame {
-    
+
     public static Tree kamus = new Tree();
 
     /**
@@ -25,7 +25,7 @@ public class Kamusku extends javax.swing.JFrame {
         initComponents();
         load();
     }
-    
+
     public void load() {
         kamus.bacaData();
     }
@@ -59,7 +59,7 @@ public class Kamusku extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(470, 100));
-        setUndecorated(true);
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
@@ -98,13 +98,13 @@ public class Kamusku extends javax.swing.JFrame {
         getContentPane().add(kramaInggilText, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 380, 243, 35));
 
         bersihButton.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        bersihButton.setText("Clean");
+        bersihButton.setText("Bersihkan");
         bersihButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bersihButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(bersihButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 430, -1, -1));
+        getContentPane().add(bersihButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 430, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Javanese Text", 1, 24)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -128,7 +128,7 @@ public class Kamusku extends javax.swing.JFrame {
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/free-wayang-vector.png"))); // NOI18N
         jLabel5.setText("jLabel5");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(-60, -40, 490, 560));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(-60, -30, 470, 540));
 
         menuFile.setText("File");
 
@@ -168,21 +168,26 @@ public class Kamusku extends javax.swing.JFrame {
     }//GEN-LAST:event_indoTextActionPerformed
 
     private void cariButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cariButtonActionPerformed
-        Bahasa s = new Bahasa();
-        String c = indoText.getText();
-        int kunci = (int) c.charAt(0);
-        if (kunci > 0) {
-            c = indoText.getText().substring(0, 1).toUpperCase() + indoText.getText().substring(1, indoText.getText().length());
+        try {
+            Bahasa s = new Bahasa();
+            String c = indoText.getText();
+            int kunci = (int) c.charAt(0);
+            if (kunci > 0) {
+                c = indoText.getText().substring(0, 1).toUpperCase() + indoText.getText().substring(1, indoText.getText().length());
+            }
+            s.setIndo(c);
+            TreeNode cari = kamus.searchNode(s);
+            if (cari != null) {
+                ngokoText.setText(cari.getData().getNgoko());
+                kramaText.setText(cari.getData().getKrama());
+                kramaInggilText.setText(cari.getData().getKramaInggil());
+            } else {
+                JOptionPane.showMessageDialog(null, "Kata Tidak Tersedia");
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Ulangi Kembali !");
         }
-        s.setIndo(c);
-        TreeNode cari = kamus.searchNode(s);
-        if (cari != null) {
-            ngokoText.setText(cari.getData().getNgoko());
-            kramaText.setText(cari.getData().getKrama());
-            kramaInggilText.setText(cari.getData().getKramaInggil());
-        } else {
-            JOptionPane.showMessageDialog(null, "Kata Tidak Tersedia");
-        }
+
 
     }//GEN-LAST:event_cariButtonActionPerformed
 
@@ -195,7 +200,7 @@ public class Kamusku extends javax.swing.JFrame {
 
     private void menuTentangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuTentangActionPerformed
         JOptionPane.showMessageDialog(null, "Aplikasi Kamus Bahasa Jawa dengan 800++\nBahasa Indonesia, Ngoko, Krama, dan Krama Inggil\n\nAuthors :"
-                + "\nHieronimus Fredy Morgan(175314080)\nGabriel Ryan Prima (175314084)\nSendhy Jaya Raharja (175314051)");
+                + "\nHieronimus Fredy Morgan(175314080)\nGabriel Ryan Prima (175314084)");
     }//GEN-LAST:event_menuTentangActionPerformed
 
     private void menuKeluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuKeluarActionPerformed
@@ -204,8 +209,8 @@ public class Kamusku extends javax.swing.JFrame {
     }//GEN-LAST:event_menuKeluarActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-      daftarKata daftar = new daftarKata();
-      daftar.setVisible(true);
+        daftarKata daftar = new daftarKata();
+        daftar.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     /**

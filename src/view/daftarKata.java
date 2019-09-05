@@ -8,7 +8,6 @@ package view;
 import Tree.*;
 import java.util.LinkedList;
 import javax.swing.JOptionPane;
-import javax.swing.JTextArea;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -76,6 +75,7 @@ public class daftarKata extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jTable1.setAutoCreateRowSorter(true);
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -87,6 +87,7 @@ public class daftarKata extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTable1.setEnabled(false);
         jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTable1MouseClicked(evt);
@@ -255,49 +256,137 @@ public class daftarKata extends javax.swing.JFrame {
     }//GEN-LAST:event_indoText1ActionPerformed
 
     private void cari2ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cari2ButtonActionPerformed
+        try {
+            Bahasa s = new Bahasa();
+            String c = indoText1.getText();
+            int kunci = (int) c.charAt(0);
+            if (kunci > 0) {
+                c = indoText1.getText().substring(0, 1).toUpperCase() + indoText1.getText().substring(1, indoText1.getText().length());
+            }
+            s.setIndo(c);
+            TreeNode cari = Kamusku.kamus.searchNode(s);
+            if (cari != null) {
+                ngokoText1.setText(cari.getData().getNgoko());
+                kramaText1.setText(cari.getData().getKrama());
+                kramaInggilText1.setText(cari.getData().getKramaInggil());
+            } else {
+                JOptionPane.showMessageDialog(null, "Kata Tidak Tersedia");
+                indoText1.setText("");
+                ngokoText1.setText("");
+                kramaText1.setText("");
+                kramaInggilText1.setText("");
+            }
+        } catch (Exception e) {
+            indoText1.setText("");
+            ngokoText1.setText("");
+            kramaText1.setText("");
+            kramaInggilText1.setText("");
+            JOptionPane.showMessageDialog(null, "Ulangi Kembali !");
+        }
 
-        Bahasa s = new Bahasa();
-        String c = indoText1.getText();
-        int kunci = (int) c.charAt(0);
-        if (kunci > 0) {
-            c = indoText1.getText().substring(0, 1).toUpperCase() + indoText1.getText().substring(1, indoText1.getText().length());
-        }
-        s.setIndo(c);
-        TreeNode cari = Kamusku.kamus.searchNode(s);
-        if (cari != null) {
-            ngokoText1.setText(cari.getData().getNgoko());
-            kramaText1.setText(cari.getData().getKrama());
-            kramaInggilText1.setText(cari.getData().getKramaInggil());
-        } else {
-            JOptionPane.showMessageDialog(null, "Kata Tidak Tersedia");
-        }
     }//GEN-LAST:event_cari2ButtonActionPerformed
 
     private void hapusButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hapusButtonActionPerformed
-        Bahasa baru = new Bahasa();
-        String c = indoText1.getText();
-        int kunci = (int) c.charAt(0);
-        if (kunci > 0) {
-            c = indoText1.getText().substring(0, 1).toUpperCase() + indoText1.getText().substring(1, indoText1.getText().length());
+        try {
+            Bahasa baru = new Bahasa();
+            String c = indoText1.getText();
+            int kunci = (int) c.charAt(0);
+            if (kunci > 0) {
+                c = indoText1.getText().substring(0, 1).toUpperCase() + indoText1.getText().substring(1, indoText1.getText().length());
+            }
+            baru.setIndo(c);
+            baru.setNgoko(ngokoText1.getText());
+            baru.setKrama(kramaText1.getText());
+            baru.setKramaInggil(kramaInggilText1.getText());
+            TreeNode cari = Kamusku.kamus.searchNode(baru);
+            if (cari != null) {
+                Kamusku.kamus.delete(baru);
+                listTree.clear();
+                baca();
+                JOptionPane.showMessageDialog(null, "Kata " + indoText1.getText() + " Telah Terhapus !");
+                indoText1.setText("");
+                ngokoText1.setText("");
+                kramaText1.setText("");
+                kramaInggilText1.setText("");
+            } else {
+                indoText1.setText("");
+                ngokoText1.setText("");
+                kramaText1.setText("");
+                kramaInggilText1.setText("");
+                JOptionPane.showMessageDialog(null, "Kata Tidak Tersedia");
+            }
+        } catch (Exception e) {
+            indoText1.setText("");
+            ngokoText1.setText("");
+            kramaText1.setText("");
+            kramaInggilText1.setText("");
+            JOptionPane.showMessageDialog(null, "Ulangi Kembali !");
         }
-        baru.setIndo(c);
-        baru.setNgoko(ngokoText1.getText());
-        baru.setKrama(kramaText1.getText());
-        baru.setKramaInggil(kramaInggilText1.getText());
-        Kamusku.kamus.delete(baru);
-        listTree.clear();
-        baca();
     }//GEN-LAST:event_hapusButtonActionPerformed
 
     private void tambahButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tambahButtonActionPerformed
-        Bahasa baru = new Bahasa();
-        baru.setIndo(indoText.getText());
-        baru.setNgoko(ngokoText.getText());
-        baru.setKrama(kramaText.getText());
-        baru.setKramaInggil(kramaInggilText.getText());
-        Kamusku.kamus.insertNode(baru);
-        listTree.clear();
-        baca();
+        try {
+            Bahasa baru = new Bahasa();
+
+            String indoTxt = indoText.getText();
+            if (indoText.getText() != null) {
+                int kunci = (int) indoTxt.charAt(0);
+                if (kunci > 0) {
+                    indoTxt = indoText.getText().substring(0, 1).toUpperCase() + indoText.getText().substring(1, indoText.getText().length());
+                }
+            }
+
+            String ngokoTxt = ngokoText.getText();
+            if (ngokoText.getText() != null) {
+                int kunci1 = (int) ngokoTxt.charAt(0);
+                if (kunci1 > 0) {
+                    ngokoTxt = ngokoText.getText().substring(0, 1).toUpperCase()
+                            + ngokoText.getText().substring(1, ngokoText.getText().length());
+                }
+            }
+
+            String kramaTxt = kramaText.getText();
+            if (kramaText.getText() != null) {
+                int kunci2 = (int) kramaTxt.charAt(0);
+                if (kunci2 > 0) {
+                    kramaTxt = kramaText.getText().substring(0, 1).toUpperCase()
+                            + kramaText.getText().substring(1, kramaText.getText().length());
+                }
+            }
+
+            String inggilTxt = kramaInggilText.getText();
+            if (kramaInggilText.getText() != null) {
+                int kunci3 = (int) inggilTxt.charAt(0);
+                if (kunci3 > 0) {
+                    ngokoTxt = kramaInggilText.getText().substring(0, 1).toUpperCase()
+                            + kramaInggilText.getText().substring(1, kramaInggilText.getText().length());
+                }
+            }
+
+            baru.setIndo(indoTxt);
+            baru.setNgoko(ngokoTxt);
+            baru.setKrama(kramaTxt);
+            baru.setKramaInggil(inggilTxt);
+            TreeNode a = Kamusku.kamus.searchNode(baru);
+            if (!a.getData().getIndo().equalsIgnoreCase(indoText.getText())) {
+                Kamusku.kamus.insertNode(baru);
+                listTree.clear();
+                baca();
+                JOptionPane.showMessageDialog(null, "Kata \"" + indoTxt + "\" Berhasil diTambahkan !");
+                indoText.setText("");
+                ngokoText.setText("");
+                kramaText.setText("");
+                kramaInggilText.setText("");
+            } else {
+                indoText.setText("");
+                ngokoText.setText("");
+                kramaText.setText("");
+                kramaInggilText.setText("");
+                JOptionPane.showMessageDialog(null, "Kata \"" + indoTxt + "\" Sudah Ada !");
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Masukkan Kata dengan Lengkap!");
+        }
     }//GEN-LAST:event_tambahButtonActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -327,9 +416,7 @@ public class daftarKata extends javax.swing.JFrame {
             tableModel.addRow(row);
         }
         jTable1.setModel(tableModel);
-
     }
-    public String indo = "";
 
     public void inOrder(TreeNode node) {
         if (node != null) {
