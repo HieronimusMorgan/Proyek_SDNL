@@ -332,7 +332,8 @@ public class daftarKata extends javax.swing.JFrame {
             if (indoText.getText() != null) {
                 int kunci = (int) indoTxt.charAt(0);
                 if (kunci > 0) {
-                    indoTxt = indoText.getText().substring(0, 1).toUpperCase() + indoText.getText().substring(1, indoText.getText().length());
+                    indoTxt = indoText.getText().substring(0, 1).toUpperCase() 
+                            + indoText.getText().substring(1, indoText.getText().length()).toLowerCase();
                 }
             }
 
@@ -341,7 +342,7 @@ public class daftarKata extends javax.swing.JFrame {
                 int kunci1 = (int) ngokoTxt.charAt(0);
                 if (kunci1 > 0) {
                     ngokoTxt = ngokoText.getText().substring(0, 1).toUpperCase()
-                            + ngokoText.getText().substring(1, ngokoText.getText().length());
+                            + ngokoText.getText().substring(1, ngokoText.getText().length()).toLowerCase();
                 }
             }
 
@@ -350,7 +351,7 @@ public class daftarKata extends javax.swing.JFrame {
                 int kunci2 = (int) kramaTxt.charAt(0);
                 if (kunci2 > 0) {
                     kramaTxt = kramaText.getText().substring(0, 1).toUpperCase()
-                            + kramaText.getText().substring(1, kramaText.getText().length());
+                            + kramaText.getText().substring(1, kramaText.getText().length()).toLowerCase();
                 }
             }
 
@@ -358,8 +359,8 @@ public class daftarKata extends javax.swing.JFrame {
             if (kramaInggilText.getText() != null) {
                 int kunci3 = (int) inggilTxt.charAt(0);
                 if (kunci3 > 0) {
-                    ngokoTxt = kramaInggilText.getText().substring(0, 1).toUpperCase()
-                            + kramaInggilText.getText().substring(1, kramaInggilText.getText().length());
+                    inggilTxt = kramaInggilText.getText().substring(0, 1).toUpperCase()
+                            + kramaInggilText.getText().substring(1, kramaInggilText.getText().length()).toLowerCase();
                 }
             }
 
@@ -368,7 +369,7 @@ public class daftarKata extends javax.swing.JFrame {
             baru.setKrama(kramaTxt);
             baru.setKramaInggil(inggilTxt);
             TreeNode a = Kamusku.kamus.searchNode(baru);
-            if (!a.getData().getIndo().equalsIgnoreCase(indoText.getText())) {
+            if (a == null) {
                 Kamusku.kamus.insertNode(baru);
                 listTree.clear();
                 baca();
